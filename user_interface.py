@@ -1,8 +1,6 @@
 import json
 
-BD = {
-
-}
+BD = {}
 
 def menu():
     print("0 - вызов меню")
@@ -26,12 +24,6 @@ def print_contacts():
     for key,value in BD.items():
         print(BD)
 
-# def delete_contact():
-#     pass
-
-# def search_contact():
-#     pass
-
 
 
 # def load():
@@ -42,9 +34,10 @@ def print_contacts():
 #             print('БД успещно загружена')
 #             return BD_local
 
+
 def save_contact():
-    #  BD = {"phone_book":[]}
-    BD = {}
+    BD = {"phone_book":[]}
+    # BD = {}
             # сохранить в json
     with open('BD.json', 'w', encoding='utf-8') as fh:  # открываем файл на запись
         fh.write(json.dumps(BD,
