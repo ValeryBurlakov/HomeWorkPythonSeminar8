@@ -19,7 +19,7 @@ while True:
         new_.new_contactt()
     elif command == "3":
         # удаление контакта
-        import delete as del_
+        import delete_contact as del_
         del_.deletee_contact()
     elif command == "4":
         # поиск контакта
