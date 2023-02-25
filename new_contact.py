@@ -1,17 +1,11 @@
 import json
-import os.path 
+import os.path
 import logg_proggram as lg
 import new_contact as new_
 import change_contact_details as change_
 
 id = 1
-# def add_book():
-#     with open('BD.json', 'w', encoding='utf-8') as fh:  # открываем файл на запись
-#         BD = {"phone_book": []}
-#         fh.write(json.dumps(BD,
-#                             ensure_ascii=False))  # преобразовываем словарь data в unicode-строку и записываем в файл
-#         print('Телефонная книга создана')
-        
+lg.logging.info('Now')
 def new_contactt():
     def added_contact():
         data['phone_book'].append(new_data) #Добавляем данные
@@ -50,13 +44,18 @@ def new_contactt():
             count_email = 0
             id = max(set(result_id)) + 1
             new_data = {'id': id, 'name': name, "surname": surname, 'phone': phone, "E-mail": email} #создали переменную, включающую в себя данные, которые мы хотим добавить в уже имеющийся файл
-        
-            
 
-            for i in result_name:
-                for j in result_surname:
-                    if name == i and surname == j:
+            pop = list(result_name)
+            prop = list(result_surname)
+            num = [name, surname]
+
+            for i in range(len(pop)): # проверка уникальности имён, если имя уже есть, предложит изменить
+                for j in range(0, len(prop[i])):
+                    numb = [pop[i], prop[j]]
+                    # print(numb)
+                    if numb == num:
                         count_fullname += 1
+                        # print(count_fullname)
 
             for i in result_phone:
                 if phone == i:
@@ -65,22 +64,26 @@ def new_contactt():
             for i in result_id:
                 if id == i:
                     count_id += 1
+
             for i in result_email:
                 if id == i:
                     count_email += 1
 
             if count_fullname > 0:
+                lg.logging.info('The name is already there')
                 print("такое имя уже есть, добавьте новый контакт(,\nлибо измените имеющийся в соответствующем меню")
             
                 
                 # if answer != 1 | answer != 2:
                 #     print("такого пункта нет")
 
-                answer_user = int(input("1 - добавить, 2 - изменить, 3 - в меню: "))
+                answer_user = int(input("\033[1m\033[32m1\033[0m - добавить, \033[32m2\033[0m - изменить, \033[32m3\033[0m - в меню\033[0m: "))
                 if answer_user == 1:
                     new_.new_contactt()
                 elif answer_user == 2:
                     change_.change_details()
+                elif answer_user == 3:
+                    print("выходим в меню")
                 else: 
                     print("такого пункта нет, верну вас в меню")
 
@@ -88,18 +91,31 @@ def new_contactt():
             else:
 
                 if count_phone > 0:
+                    lg.logging.info('the phone number is already there')
                     print("такой номер телефона уже записан, добавьте новый контакт,\nлибо измените имеющийся в соответствующем меню")
-                    new_.new_contactt()
+                    answer_user = int(input("\033[1m\033[32m1\033[0m - добавить, \033[32m2\033[0m - изменить, \033[32m3\033[0m - в меню\033[0m: "))
+                    if answer_user == 1:
+                        new_.new_contactt()
+                    elif answer_user == 2:
+                        change_.change_details()
+                    elif answer_user == 3:
+                        print("выходим в меню")
+                        lg.logging.info('menu exit')
+                    else: 
+                        print("такого пункта нет, верну вас в меню")
+                        lg.logging.info('menu exit')
+                    # new_.new_contactt()
                 else:
                     if count_id == 0: # проверка на уникальность id
                         added_contact()
                     else:
-                        added_contact()
+                        added_contact("Выходим в меню")
     else:         
         with open('BD.json', 'w', encoding='utf-8') as fh:  # открываем файл на запись
             BD = {"phone_book": []}
             fh.write(json.dumps(BD,
                                 ensure_ascii=False))  # преобразовываем словарь data в unicode-строку и записываем в файл
+            lg.logging.info('Create phone book')
             print('\033[1mТелефонная книга создана!\033[0m')
 
         name = input("Введите имя: ")
@@ -109,6 +125,7 @@ def new_contactt():
         with open('BD.json', encoding='utf8') as openfile:  # Открываем файл
             # Получаем все данные из файла (вообще все, да)
             data = json.load(openfile)
+            lg.logging.info('Open file')
             # создали переменную, включающую в себя данные, которые мы хотим
             # добавить в уже имеющийся файл
             new_data = {
@@ -123,7 +140,7 @@ def new_contactt():
                 # print(f'Контакт {name} успешно добавлен!!!!')
                 # with open('BD.json', 'w', encoding='utf8') as outfile:  # Открываем файл для записи
                 #     json.dump(data, outfile, ensure_ascii=False, indent=2)
-                lg.logging.info('Added contact succesfull')
+                lg.logging.info('Added contact succesful')
                     # print(len(data["phone_book"]))
 
 

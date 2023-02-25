@@ -1,11 +1,12 @@
 import json
-
+import logg_proggram as lg
 
 def printt_phone_book():
 
     with open('BD.json', 'r', encoding='utf-8') as f:  # открыли файл с данными
         text = json.load(f)  # загнали все, что получилось в переменную
         # pprint(text) #вывели результат на экран
+        lg.logging.info('Read DATABASE')
 
     t = text["phone_book"]  # ключ от главного словаря с данными контактов
     # обращаемся к словарю получаем список имён
@@ -22,12 +23,14 @@ def printt_phone_book():
             print(
                 f"\033[1m{i + 1}\033[0m \033[32mname: \033[0m{list_name[i]} {list_surname[i]} \n" +
                 f'\033[32mphone: \033[0m {list_phone[i]}\n')
+
         else:
             print(
                 f"\033[1m{i + 1}\033[0m \033[32mname: \033[0m{list_name[i]} {list_surname[i]} \n" +
                 f'\033[32mphone: \033[0m {list_phone[i]} \n' +
                 f'\033[32mE-mail: \033[0m {list_email[i]}\n')
-
+    lg.logging.info('Print phone book')
+    
     # for i in range(len(list_name)): # обращаемся к списку имён
     #     print(f"{i + 1}\033[32m name: \033[0m{list_name[i]} {list_surname[i]} \n" + f'\033[32mphone: \033[0m {list_phone[i]} \n' + f'\033[32mE-mail: \033[0m {list_email[i]}')
     #     print()

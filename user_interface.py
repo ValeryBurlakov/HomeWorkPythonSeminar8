@@ -1,4 +1,5 @@
 import json
+import logg_proggram as lg
 
 BD = {}
 
@@ -12,6 +13,7 @@ def menu():
     print("\033[32m5\033[0m - изменение данных")
     print("\033[32m6\033[0m - выгрузка данных")
     print("\033[32m9\033[0m - выход из программы")
+    lg.logging.info('Menu display')
 
 
 def load_phonebook():
@@ -20,6 +22,7 @@ def load_phonebook():
     with open(fname, 'r', encoding='utf-8') as fh:  # открываем файл на чтение
         BD_local = json.load(fh)  # загружаем из файла данные в словарь data
     print('БД успещно загружена')
+    lg.logging.info('Read DATABASE')
     return BD_local
 
 
@@ -30,4 +33,5 @@ def save_contact():
     with open('BD.json', 'w', encoding='utf-8') as fh:  # открываем файл на запись
         fh.write(json.dumps(BD,
                             ensure_ascii=False))  # преобразовываем словарь data в unicode-строку и записываем в файл
+        lg.logging.info('Write DATABASE')
         print('БД успешно создана')

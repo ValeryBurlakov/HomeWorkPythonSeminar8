@@ -3,7 +3,7 @@
 # для изменения и удаления данных.
 import user_interface as ui
 import logg_proggram as lg
-lg.logging.info('Start')
+lg.logging.info('Start program')
 def main_():
     while True:
         command = input("\033[1mВведите команду\033[0m (меню - \033[32m0\033[0m, выход \033[32m9\033[0m): ")

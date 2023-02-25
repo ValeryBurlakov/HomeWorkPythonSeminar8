@@ -1,5 +1,5 @@
 import json
-
+import logg_proggram as lg
 
 def searchh_contact():
     name_search = input("Введите имя контакта, который хотите найти: ")
@@ -11,12 +11,13 @@ def searchh_contact():
     count = 0
     for i in data["phone_book"]:
         if i["name"] == name_search:
-
+            lg.logging.info('contact found')
             print(f'{i["name"]} {i["surname"]}')
             print(f'{i["phone"]}\n')
             count += 1
 
     if count == 0:
+        lg.logging.info('No such contact')
         print("Такого контакта нет")
 
     return data

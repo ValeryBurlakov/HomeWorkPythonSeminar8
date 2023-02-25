@@ -1,5 +1,5 @@
 import json
-
+import logg_proggram as lg
 
 def change_details():
     name_search = input("\033[1mВведите имя контакта, который хотите изменить:\033[0m ")
@@ -10,6 +10,7 @@ def change_details():
     with open('BD.json', encoding='utf8') as openfile:  # Открываем файл
         # Получае все данные из файла (вообще все, да)
         data = json.load(openfile)
+        lg.logging.info('Open file')
 
     for i in data["phone_book"]:
         if i["name"] == name_search:
@@ -25,18 +26,22 @@ def change_details():
                 if answer_name == 1:
                     change_name = input(f"\033[1mМеняем имя {name_search} на:\033[0m ")
                     i["name"] = change_name
+                    lg.logging.info('Change name')
                     print("Имя изменено")
                 elif answer_name == 2:
                     change_name = input(f"Меняем фамилию {surname} на: ")
                     i["surname"] = change_name
+                    lg.logging.info('Change surname')
                     print("Фамилия изменена")
             elif answer == 2:
                 change_phone = input(f"Меняем номер {number} на: ")
                 i["phone"] = change_phone
+                lg.logging.info('Change phone number')
                 print(f'Теперь номер контакта {i["name"]}: {i["phone"]}')
             elif answer == 3:
-                i["E-mail"] = input(
-                    f"Меняем почту контакта {name_search} {surname} с почтой {email} на: ")
+                change_email = input(f"Меняем почту контакта {name_search} {surname} с почтой {email} на: ")
+                i["E-mail"] = change_email
+                lg.logging.info('Change E-mail')
         else:
             continue
             # i = i + 1
@@ -45,6 +50,7 @@ def change_details():
         # Добавляем данные (все, что было ДО добавления данных + добавленные
         # данные)
         json.dump(data, outfile, ensure_ascii=False, indent=2)
+        lg.logging.info('Data recording')
         # id = id + 1
         # print(f'Контакт {name} успешно добавлен!')
         # return id
