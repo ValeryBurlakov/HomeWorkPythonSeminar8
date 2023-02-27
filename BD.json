@@ -9,38 +9,45 @@
     },
     {
       "id": 2,
-      "name": "w",
-      "surname": "w",
-      "phone": "w",
-      "E-mail": "w"
+      "name": "Valery",
+      "surname": "Burlakov",
+      "phone": "12345678901",
+      "E-mail": "ValeryB@mail.ru"
     },
     {
       "id": 3,
-      "name": "v",
-      "surname": "v",
-      "phone": "v",
-      "E-mail": "v"
+      "name": "Valery",
+      "surname": "Abramov",
+      "phone": "123",
+      "E-mail": "v@mail.ru"
     },
     {
       "id": 4,
-      "name": "h",
-      "surname": "h",
-      "phone": "h",
-      "E-mail": "h"
+      "name": "Christian",
+      "surname": "Dior",
+      "phone": "3216735",
+      "E-mail": "dior@gmail.com"
     },
     {
       "id": 5,
-      "name": "h",
-      "surname": "g",
-      "phone": "t",
-      "E-mail": "y"
+      "name": "Elvis",
+      "surname": "Presley",
+      "phone": "4569832",
+      "E-mail": "Elvis@gmail.com"
     },
     {
       "id": 6,
-      "name": "q",
-      "surname": "q",
-      "phone": "q",
-      "E-mail": "q"
+      "name": "Tom",
+      "surname": "Hardy",
+      "phone": "5646478",
+      "E-mail": "Hardy@mail.ru"
+    },
+    {
+      "id": 7,
+      "name": "Валентина",
+      "surname": "Овечкина",
+      "phone": "89436547689",
+      "E-mail": "овечкина@mail.ru"
     }
   ]
 }

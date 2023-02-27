@@ -6,7 +6,7 @@ def copy():
         text = json.load(f)  # загнали все, что получилось в переменную
         # print(text) #вывели результат на экран
         lg.logging.info('Read DATABASE')
-        n = input("Введите имя нового файла: ")+ '.json'
+        n = input("Введите имя нового файла: ") + '.json'
         n = str(n)
 
         with open(n, 'w', encoding='utf-8') as openfile:  # Открываем файл

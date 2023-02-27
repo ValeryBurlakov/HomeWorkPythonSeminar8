@@ -30,7 +30,7 @@ def printt_phone_book():
     lg.logging.info('Print phone book')
 
     if len(t) == 0:
-        print("Телефонная книга пуста, добавьте контакт!")
+        print("\033[1mТелефонная книга пуста, добавьте контакт!\033[0m")
     # for i in range(len(list_name)): # обращаемся к списку имён
     #     print(f"{i + 1}\033[32m name: \033[0m{list_name[i]} {list_surname[i]} \n" + f'\033[32mphone: \033[0m {list_phone[i]} \n' + f'\033[32mE-mail: \033[0m {list_email[i]}')
     #     print()

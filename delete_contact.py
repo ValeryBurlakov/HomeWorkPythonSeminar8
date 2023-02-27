@@ -1,6 +1,5 @@
 import json
 import logg_proggram as lg
-import logg_proggram as lg
 
 def deletee_contact():
     name_del = str(input("Введите имя контакта, который хотите удалить: "))

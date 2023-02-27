@@ -7,7 +7,7 @@ def load():
     with open(fname, 'r', encoding='utf-8') as fh:  # открываем файл на чтение
         BD_local = json.load(fh)  # загружаем из файла данные в словарь data
         lg.logging.info('Read DATABASE')
-    print('БД успещно загружена')
+    print('\033[1mБД успещно загружена\033[0m')
     return BD_local
 
 

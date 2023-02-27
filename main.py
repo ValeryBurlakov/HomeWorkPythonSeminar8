@@ -3,8 +3,12 @@
 # для изменения и удаления данных.
 import user_interface as ui
 import logg_proggram as lg
+from datetime import datetime
 lg.logging.info('Start program')
+
 def main_():
+    dt = datetime.now()
+    print(f'\033[1mДоброго времени суток!\033[0m\n{dt.strftime("%A, %d %B %Y %I:%M%p")}')
     while True:
         global command
         command = input("\033[1mВведите команду\033[0m (меню - \033[32m0\033[0m, выход \033[32m9\033[0m): ")
@@ -13,7 +17,7 @@ def main_():
             # показать меню книги
             ui.menu()
         elif command == "1":
-            # вывод телевонной книги
+            # вывод телефонной книги
             try:
                 import print_phone_book as ppb
                 # bd = ui.load_phonebook()
@@ -25,7 +29,6 @@ def main_():
             # новый контакт
                 import new_contact as new_
                 new_.new_contactt()
-                # print(21312)
         elif command == "3":
             # удаление контакта
             import delete_contact as del_
